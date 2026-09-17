@@ -1,6 +1,130 @@
 ﻿//namespace OOPASS_03
 //{
 //    using System;
+//    //Q3 PRACTICAL
+//    public class Shipment
+//    {
+//        public string TrackingCode { get; set; }
+//        public double Weight { get; set; }
+//        public decimal DeliveryFee { get; set; }
+
+//        public virtual decimal EstimatedCost
+//        {
+//            get
+//            {
+//                return DeliveryFee + ((decimal)Weight * 5);
+//            }
+//        }
+
+//        public Shipment(string trackingCode, double weight, decimal deliveryFee)
+//        {
+//            TrackingCode = trackingCode;
+//            Weight = weight;
+//            DeliveryFee = deliveryFee;
+//        }
+//    }
+
+//    public class StandardShipment : Shipment
+//    {
+//        public StandardShipment(
+//            string trackingCode,
+//            double weight,
+//            decimal deliveryFee)
+//            : base(trackingCode, weight, deliveryFee)
+//        {
+//        }
+//    }
+
+//    public class ExpressShipment : Shipment
+//    {
+//        public decimal ExtraFee { get; set; }
+
+//        public ExpressShipment(
+//            string trackingCode,
+//            double weight,
+//            decimal deliveryFee,
+//            decimal extraFee)
+//            : base(trackingCode, weight, deliveryFee)
+//        {
+//            ExtraFee = extraFee;
+//        }
+
+//        public override decimal EstimatedCost
+//        {
+//            get
+//            {
+//                return DeliveryFee + ((decimal)Weight * 5) + ExtraFee;
+//            }
+//        }
+//    }
+
+//    public class InternationalShipment : Shipment
+//    {
+//        public decimal CustomsFee { get; set; }
+
+//        public InternationalShipment(
+//            string trackingCode,
+//            double weight,
+//            decimal deliveryFee,
+//            decimal customsFee)
+//            : base(trackingCode, weight, deliveryFee)
+//        {
+//            CustomsFee = customsFee;
+//        }
+
+//        public override decimal EstimatedCost
+//        {
+//            get
+//            {
+//                return DeliveryFee + ((decimal)Weight * 5) + CustomsFee;
+//            }
+//        }
+//    }
+
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            StandardShipment standard =
+//                new StandardShipment("SH001", 3, 50);
+
+//            ExpressShipment express =
+//                new ExpressShipment("SH002", 3, 50, 30);
+
+//            InternationalShipment international =
+//                new InternationalShipment("SH003", 3, 50, 100);
+
+//            Console.WriteLine($"Standard Cost: {standard.EstimatedCost} EGP");
+//            Console.WriteLine($"Express Cost: {express.EstimatedCost} EGP");
+//            Console.WriteLine($"International Cost: {international.EstimatedCost} EGP");
+//        }
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    using System;
 //    //Q2 PRACTICAL
 //    public class Shipment
 //    {
