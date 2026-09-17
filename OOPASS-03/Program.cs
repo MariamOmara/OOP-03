@@ -1,6 +1,456 @@
 ﻿//namespace OOPASS_03
 //{
 //    using System;
+//    //Q9
+//    namespace OOPASS_03
+//    {
+//        // =========================
+//        // Driver
+//        // =========================
+//        public class Driver
+//        {
+//            public string Name { get; set; }
+
+//            public Driver(string name)
+//            {
+//                Name = name;
+//            }
+//        }
+
+
+//        // =========================
+//        // Shipment
+//        // =========================
+//        public class Shipment
+//        {
+//            public string TrackingCode { get; set; }
+//            public string Description { get; set; }
+//            public double Weight { get; private set; }
+//            public decimal DeliveryFee { get; set; }
+
+//            public virtual decimal EstimatedCost
+//            {
+//                get
+//                {
+//                    return DeliveryFee + ((decimal)Weight * 5);
+//                }
+//            }
+
+//            public Shipment(
+//                string trackingCode,
+//                string description,
+//                double weight,
+//                decimal deliveryFee)
+//            {
+//                TrackingCode = trackingCode;
+//                Description = description;
+//                Weight = weight;
+//                DeliveryFee = deliveryFee;
+//            }
+
+//            public virtual void PrintShipment()
+//            {
+//                Console.WriteLine($"Tracking Code : {TrackingCode}");
+//                Console.WriteLine($"Description   : {Description}");
+//                Console.WriteLine($"Weight        : {Weight} KG");
+//                Console.WriteLine($"Delivery Fee  : {DeliveryFee} EGP");
+//                Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+//            }
+
+//            // Version 1
+//            public void UpdateWeight(double newWeight)
+//            {
+//                Weight = newWeight;
+//            }
+
+//            // Version 2
+//            public void UpdateWeight(double newWeight, double extraPackingWeight)
+//            {
+//                Weight = newWeight + extraPackingWeight;
+//            }
+//        }
+
+
+//        // =========================
+//        // StandardShipment
+//        // =========================
+//        public class StandardShipment : Shipment
+//        {
+//            public StandardShipment(
+//                string trackingCode,
+//                string description,
+//                double weight,
+//                decimal deliveryFee)
+//                : base(trackingCode, description, weight, deliveryFee)
+//            {
+//            }
+
+//            public override void PrintShipment()
+//            {
+//                Console.WriteLine("Standard Shipment");
+//                base.PrintShipment();
+//            }
+//        }
+
+
+//        // =========================
+//        // ExpressShipment
+//        // =========================
+//        public class ExpressShipment : Shipment
+//        {
+//            public decimal ExtraFee { get; set; }
+
+//            public override decimal EstimatedCost
+//            {
+//                get
+//                {
+//                    return DeliveryFee + ((decimal)Weight * 5) + ExtraFee;
+//                }
+//            }
+
+//            public ExpressShipment(
+//                string trackingCode,
+//                string description,
+//                double weight,
+//                decimal deliveryFee,
+//                decimal extraFee)
+//                : base(trackingCode, description, weight, deliveryFee)
+//            {
+//                ExtraFee = extraFee;
+//            }
+
+//            public override void PrintShipment()
+//            {
+//                Console.WriteLine("Express Shipment");
+//                base.PrintShipment();
+//                Console.WriteLine($"Extra Fee     : {ExtraFee} EGP");
+//            }
+//        }
+
+
+//        // =========================
+//        // InternationalShipment
+//        // =========================
+//        public class InternationalShipment : Shipment
+//        {
+//            public string DestinationCountry { get; set; }
+//            public decimal CustomsFee { get; set; }
+
+//            public override decimal EstimatedCost
+//            {
+//                get
+//                {
+//                    return DeliveryFee
+//                           + ((decimal)Weight * 5)
+//                           + CustomsFee;
+//                }
+//            }
+
+//            public InternationalShipment(
+//                string trackingCode,
+//                string description,
+//                double weight,
+//                decimal deliveryFee,
+//                string destinationCountry,
+//                decimal customsFee)
+//                : base(trackingCode, description, weight, deliveryFee)
+//            {
+//                DestinationCountry = destinationCountry;
+//                CustomsFee = customsFee;
+//            }
+
+//            public override void PrintShipment()
+//            {
+//                Console.WriteLine("International Shipment");
+//                base.PrintShipment();
+//                Console.WriteLine($"Destination Country: {DestinationCountry}");
+//                Console.WriteLine($"Customs Fee        : {CustomsFee} EGP");
+//            }
+
+//            public virtual void GenerateCustomsReport()
+//            {
+//                Console.WriteLine("Customs Report Generated.");
+//            }
+//        }
+
+
+//        // =========================
+//        // PriorityInternationalShipment
+//        // =========================
+//        public class PriorityInternationalShipment
+//            : InternationalShipment
+//        {
+//            public PriorityInternationalShipment(
+//                string trackingCode,
+//                string description,
+//                double weight,
+//                decimal deliveryFee,
+//                string destinationCountry,
+//                decimal customsFee)
+//                : base(
+//                    trackingCode,
+//                    description,
+//                    weight,
+//                    deliveryFee,
+//                    destinationCountry,
+//                    customsFee)
+//            {
+//            }
+
+//            // Sealed Method
+//            public sealed override void GenerateCustomsReport()
+//            {
+//                Console.WriteLine("Priority Customs Report Generated.");
+//            }
+//        }
+
+
+//        // =========================
+//        // CompletedShipment
+//        // =========================
+//        public sealed class CompletedShipment : Shipment
+//        {
+//            public CompletedShipment(
+//                string trackingCode,
+//                string description,
+//                double weight,
+//                decimal deliveryFee)
+//                : base(trackingCode, description, weight, deliveryFee)
+//            {
+//            }
+
+//            public override void PrintShipment()
+//            {
+//                Console.WriteLine("Completed Shipment");
+//                base.PrintShipment();
+//            }
+//        }
+
+
+//        // =========================
+//        // DeliveryCenter
+//        // =========================
+//        public class DeliveryCenter
+//        {
+//            private Shipment[] shipments;
+
+//            public Driver Driver { get; set; }
+
+//            public DeliveryCenter(int capacity)
+//            {
+//                shipments = new Shipment[capacity];
+//            }
+
+//            public void AddShipment(Shipment shipment)
+//            {
+//                for (int i = 0; i < shipments.Length; i++)
+//                {
+//                    if (shipments[i] == null)
+//                    {
+//                        shipments[i] = shipment;
+//                        return;
+//                    }
+//                }
+//            }
+
+//            public void RemoveShipment(int index)
+//            {
+//                if (index >= 0 && index < shipments.Length)
+//                {
+//                    shipments[index] = null;
+//                }
+//            }
+
+//            // Integer Indexer
+//            public Shipment this[int index]
+//            {
+//                get
+//                {
+//                    if (index >= 0 && index < shipments.Length)
+//                    {
+//                        return shipments[index];
+//                    }
+
+//                    return null;
+//                }
+
+//                set
+//                {
+//                    if (index >= 0 && index < shipments.Length)
+//                    {
+//                        shipments[index] = value;
+//                    }
+//                }
+//            }
+
+//            // String Indexer
+//            public Shipment this[string trackingCode]
+//            {
+//                get
+//                {
+//                    foreach (Shipment shipment in shipments)
+//                    {
+//                        if (shipment != null &&
+//                            shipment.TrackingCode == trackingCode)
+//                        {
+//                            return shipment;
+//                        }
+//                    }
+
+//                    return null;
+//                }
+//            }
+//        }
+
+
+//        // =========================
+//        // DeliveryHelper
+//        // =========================
+//        public static class DeliveryHelper
+//        {
+//            public static void PrintShipmentDetails(Shipment shipment)
+//            {
+//                shipment.PrintShipment();
+//            }
+//        }
+
+
+//        // =========================
+//        // Main
+//        // =========================
+//        internal class Program
+//        {
+//            static void Main(string[] args)
+//            {
+//                // a. Create a Driver
+//                Driver driver = new Driver("Ahmed Mohamed");
+
+
+//                // b. Create a DeliveryCenter
+//                DeliveryCenter center = new DeliveryCenter(10);
+
+
+//                // c. Assign Driver
+//                center.Driver = driver;
+
+
+//                Console.WriteLine("==================================");
+//                Console.WriteLine("Delivery Center");
+//                Console.WriteLine("==================================");
+//                Console.WriteLine($"Driver : {center.Driver.Name}");
+//                Console.WriteLine();
+
+
+//                // d. Create StandardShipment
+//                StandardShipment standard =
+//                    new StandardShipment(
+//                        "SH001",
+//                        "Laptop",
+//                        3,
+//                        80);
+
+
+//                // e. Create ExpressShipment
+//                ExpressShipment express =
+//                    new ExpressShipment(
+//                        "SH002",
+//                        "Mobile Phone",
+//                        2,
+//                        60,
+//                        30);
+
+
+//                // f. Create InternationalShipment
+//                InternationalShipment international =
+//                    new InternationalShipment(
+//                        "SH003",
+//                        "Television",
+//                        8,
+//                        120,
+//                        "Germany",
+//                        100);
+
+
+//                // g. Add all shipments
+//                center.AddShipment(standard);
+//                center.AddShipment(express);
+//                center.AddShipment(international);
+
+
+//                // h. Print all shipments
+//                Console.WriteLine("==================================");
+//                Console.WriteLine("Printing All Shipments");
+//                Console.WriteLine("==================================");
+
+//                for (int i = 0; i < 3; i++)
+//                {
+//                    Console.WriteLine();
+
+//                    DeliveryHelper.PrintShipmentDetails(center[i]);
+//                }
+
+
+//                // i. Call DeliveryHelper for each shipment
+//                Console.WriteLine();
+//                Console.WriteLine("==================================");
+//                Console.WriteLine("Weight Update");
+//                Console.WriteLine("==================================");
+
+
+//                // First version
+//                Console.WriteLine("Original Weight : 3 KG");
+
+//                standard.UpdateWeight(5);
+
+//                Console.WriteLine($"Updated Weight  : {standard.Weight} KG");
+
+
+//                // Second version
+//                standard.UpdateWeight(5, 0.5);
+
+//                Console.WriteLine(
+//                    $"Updated Weight After Packing : {standard.Weight} KG");
+
+
+//                // Demonstrate sealed method
+//                PriorityInternationalShipment priority =
+//                    new PriorityInternationalShipment(
+//                        "SH004",
+//                        "Documents",
+//                        1,
+//                        50,
+//                        "France",
+//                        40);
+
+//                priority.GenerateCustomsReport();
+
+
+//                // Demonstrate sealed class
+//                Shipment completed =
+//                    new CompletedShipment(
+//                        "SH005",
+//                        "Package",
+//                        2,
+//                        70);
+
+//                completed.PrintShipment();
+//            }
+//        }
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+//    using System;
 //    //Q8
 //    class InternationalShipment
 //    {
