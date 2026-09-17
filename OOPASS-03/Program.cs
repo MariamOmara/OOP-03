@@ -1,7 +1,38 @@
 ﻿//namespace OOPASS_03
 //{
 //    using System;
-    
+//    //Q8
+//    class InternationalShipment
+//    {
+//        public virtual void GenerateCustomsReport()
+//        {
+//            Console.WriteLine("International Customs Report");
+//        }
+//    }
+
+//    class PriorityInternationalShipment : InternationalShipment
+//    {
+//        public sealed override void GenerateCustomsReport()
+//        {
+//            Console.WriteLine("Priority Customs Report");
+//        }
+//    }
+
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            PriorityInternationalShipment shipment =
+//                new PriorityInternationalShipment();
+
+//            shipment.GenerateCustomsReport();
+//        }
+//    }
+//}
+
+
+//    using System;
+
 //    public class Shipment
 //    {
 //        public virtual void PrintShipment()
