@@ -1,6 +1,197 @@
 ﻿//namespace OOPASS_03
 //{
 //    using System;
+//    //Q4 PRACTICAL
+//    public class Shipment
+//    {
+//        public string TrackingCode { get; set; }
+//        public string Description { get; set; }
+//        public double Weight { get; set; }
+//        public decimal DeliveryFee { get; set; }
+
+//        public virtual decimal EstimatedCost
+//        {
+//            get
+//            {
+//                return DeliveryFee + ((decimal)Weight * 5);
+//            }
+//        }
+
+//        public virtual void PrintShipment()
+//        {
+//            Console.WriteLine($"Tracking Code: {TrackingCode}");
+//            Console.WriteLine($"Description: {Description}");
+//            Console.WriteLine($"Weight: {Weight} KG");
+//            Console.WriteLine($"Delivery Fee: {DeliveryFee} EGP");
+//            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+//        }
+
+//        public Shipment(
+//            string trackingCode,
+//            string description,
+//            double weight,
+//            decimal deliveryFee)
+//        {
+//            TrackingCode = trackingCode;
+//            Description = description;
+//            Weight = weight;
+//            DeliveryFee = deliveryFee;
+//        }
+//    }
+
+//    public class StandardShipment : Shipment
+//    {
+//        public StandardShipment(
+//            string trackingCode,
+//            string description,
+//            double weight,
+//            decimal deliveryFee)
+//            : base(trackingCode, description, weight, deliveryFee)
+//        {
+//        }
+
+//        public override void PrintShipment()
+//        {
+//            Console.WriteLine("=== Standard Shipment ===");
+//            Console.WriteLine($"Tracking Code: {TrackingCode}");
+//            Console.WriteLine($"Description: {Description}");
+//            Console.WriteLine($"Weight: {Weight} KG");
+//            Console.WriteLine($"Delivery Fee: {DeliveryFee} EGP");
+//            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+//        }
+//    }
+
+//    public class ExpressShipment : Shipment
+//    {
+//        public decimal ExtraFee { get; set; }
+
+//        public ExpressShipment(
+//            string trackingCode,
+//            string description,
+//            double weight,
+//            decimal deliveryFee,
+//            decimal extraFee)
+//            : base(trackingCode, description, weight, deliveryFee)
+//        {
+//            ExtraFee = extraFee;
+//        }
+
+//        public override decimal EstimatedCost
+//        {
+//            get
+//            {
+//                return DeliveryFee + ((decimal)Weight * 5) + ExtraFee;
+//            }
+//        }
+
+//        public override void PrintShipment()
+//        {
+//            Console.WriteLine("=== Express Shipment ===");
+//            Console.WriteLine($"Tracking Code: {TrackingCode}");
+//            Console.WriteLine($"Description: {Description}");
+//            Console.WriteLine($"Weight: {Weight} KG");
+//            Console.WriteLine($"Delivery Fee: {DeliveryFee} EGP");
+//            Console.WriteLine($"Extra Fee: {ExtraFee} EGP");
+//            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+//        }
+//    }
+
+//    public class InternationalShipment : Shipment
+//    {
+//        public string DestinationCountry { get; set; }
+//        public decimal CustomsFee { get; set; }
+
+//        public InternationalShipment(
+//            string trackingCode,
+//            string description,
+//            double weight,
+//            decimal deliveryFee,
+//            string destinationCountry,
+//            decimal customsFee)
+//            : base(trackingCode, description, weight, deliveryFee)
+//        {
+//            DestinationCountry = destinationCountry;
+//            CustomsFee = customsFee;
+//        }
+
+//        public override decimal EstimatedCost
+//        {
+//            get
+//            {
+//                return DeliveryFee + ((decimal)Weight * 5) + CustomsFee;
+//            }
+//        }
+
+//        public override void PrintShipment()
+//        {
+//            Console.WriteLine("=== International Shipment ===");
+//            Console.WriteLine($"Tracking Code: {TrackingCode}");
+//            Console.WriteLine($"Description: {Description}");
+//            Console.WriteLine($"Weight: {Weight} KG");
+//            Console.WriteLine($"Delivery Fee: {DeliveryFee} EGP");
+//            Console.WriteLine($"Destination Country: {DestinationCountry}");
+//            Console.WriteLine($"Customs Fee: {CustomsFee} EGP");
+//            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+//        }
+//    }
+
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            StandardShipment standard =
+//                new StandardShipment(
+//                    "SH001",
+//                    "Laptop",
+//                    3,
+//                    50);
+
+//            ExpressShipment express =
+//                new ExpressShipment(
+//                    "SH002",
+//                    "Mobile",
+//                    2,
+//                    50,
+//                    30);
+
+//            InternationalShipment international =
+//                new InternationalShipment(
+//                    "SH003",
+//                    "TV",
+//                    8,
+//                    100,
+//                    "USA",
+//                    150);
+
+//            standard.PrintShipment();
+
+//            Console.WriteLine();
+
+//            express.PrintShipment();
+
+//            Console.WriteLine();
+
+//            international.PrintShipment();
+//        }
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    using System;
 //    //Q3 PRACTICAL
 //    public class Shipment
 //    {
