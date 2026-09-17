@@ -1,6 +1,119 @@
 ﻿//namespace OOPASS_03
 //{
 //    using System;
+//    //Q2 PRACTICAL
+//    public class Shipment
+//    {
+//        public string TrackingCode { get; set; }
+//        public string Description { get; set; }
+//        public double Weight { get; set; }
+//        public decimal DeliveryFee { get; set; }
+
+//        public Shipment(
+//            string trackingCode,
+//            string description,
+//            double weight,
+//            decimal deliveryFee)
+//        {
+//            TrackingCode = trackingCode;
+//            Description = description;
+//            Weight = weight;
+//            DeliveryFee = deliveryFee;
+//        }
+//    }
+
+//    public class StandardShipment : Shipment
+//    {
+//        public StandardShipment(
+//            string trackingCode,
+//            string description,
+//            double weight,
+//            decimal deliveryFee)
+//            : base(trackingCode, description, weight, deliveryFee)
+//        {
+//        }
+//    }
+
+//    public class ExpressShipment : Shipment
+//    {
+//        public ExpressShipment(
+//            string trackingCode,
+//            string description,
+//            double weight,
+//            decimal deliveryFee)
+//            : base(trackingCode, description, weight, deliveryFee)
+//        {
+//        }
+//    }
+
+//    public class InternationalShipment : Shipment
+//    {
+//        public InternationalShipment(
+//            string trackingCode,
+//            string description,
+//            double weight,
+//            decimal deliveryFee)
+//            : base(trackingCode, description, weight, deliveryFee)
+//        {
+//        }
+//    }
+
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            StandardShipment standard =
+//                new StandardShipment(
+//                    "SH001",
+//                    "Laptop",
+//                    3,
+//                    80);
+
+//            ExpressShipment express =
+//                new ExpressShipment(
+//                    "SH002",
+//                    "Mobile Phone",
+//                    2,
+//                    60);
+
+//            InternationalShipment international =
+//                new InternationalShipment(
+//                    "SH003",
+//                    "Television",
+//                    8,
+//                    120);
+
+//            Console.WriteLine("Standard Shipment");
+//            Console.WriteLine(standard.TrackingCode);
+//            Console.WriteLine(standard.Description);
+//            Console.WriteLine(standard.Weight);
+//            Console.WriteLine(standard.DeliveryFee);
+
+//            Console.WriteLine();
+
+//            Console.WriteLine("Express Shipment");
+//            Console.WriteLine(express.TrackingCode);
+//            Console.WriteLine(express.Description);
+//            Console.WriteLine(express.Weight);
+//            Console.WriteLine(express.DeliveryFee);
+
+//            Console.WriteLine();
+
+//            Console.WriteLine("International Shipment");
+//            Console.WriteLine(international.TrackingCode);
+//            Console.WriteLine(international.Description);
+//            Console.WriteLine(international.Weight);
+//            Console.WriteLine(international.DeliveryFee);
+//        }
+//    }
+//}
+
+
+
+
+
+
+//    using System;
 //    // Q1 PRACTICAL
 //    public struct DeliveryAddress
 //    {
