@@ -1,6 +1,41 @@
 ﻿//namespace OOPASS_03
 //{
 //    using System;
+    
+//    public class Shipment
+//    {
+//        public virtual void PrintShipment()
+//        {
+//            Console.WriteLine("Shipment");
+//        }
+//    }
+
+//    // Q7
+//    public sealed class CompletedShipment : Shipment
+//    {
+//        public override void PrintShipment()
+//        {
+//            Console.WriteLine("Completed Shipment");
+//        }
+//    }
+
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            CompletedShipment shipment = new CompletedShipment();
+
+//            shipment.PrintShipment();
+//        }
+//    }
+//}
+
+
+
+
+
+
+//    using System;
 //    //Q6 PRACTICAL
 //    public class Shipment
 //    {
